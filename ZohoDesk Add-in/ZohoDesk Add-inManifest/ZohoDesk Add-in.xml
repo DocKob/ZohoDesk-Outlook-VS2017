@@ -13,13 +13,13 @@
   <Id>5704083c-6741-49c4-b0e5-01493f7d8a25</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
-  <Version>1.0.0.0</Version>
+  <Version>1.0.1.2</Version>
   <ProviderName>Hitea</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
   <DisplayName DefaultValue="ZohoDesk Add-in" />
-  <Description DefaultValue="Forward to Zoho Desk"/>
-  <IconUrl DefaultValue="https://zohoaddin.azurewebsites.net/Images/icon64.png"/>
+  <Description DefaultValue="Forward to Zoho Desk to automatically open a ticket."/>
+  <IconUrl DefaultValue="~remoteAppUrl/Images/icon64.png"/>
 
   <SupportUrl DefaultValue="https://hitea.fr" />
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
@@ -39,7 +39,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://zohoaddin.azurewebsites.net/MessageRead.html"/>
+        <SourceLocation DefaultValue="~remoteAppUrl/MessageRead.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -71,22 +71,6 @@
               <!-- Up to 6 Groups added per Tab -->
               <Group id="msgReadGroup">
                 <Label resid="groupLabel" />
-                <Control xsi:type="Button" id="msgForwardToZohoDesk">
-                  <Label resid="ForwardToZohoDeskLabel"/>
-                  <Supertip>
-                    <Title resid="ForwardToZohoDeskTitle"/>
-                    <Description resid="ForwardToZohoDeskDesc"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="icon16"/>
-                    <bt:Image size="32" resid="icon32"/>
-                    <bt:Image size="80" resid="icon80"/>
-                  </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>Forward</FunctionName>
-                  </Action>
-                </Control>
-                <!-- Launch the add-in : task pane button -->
                 <Control xsi:type="Button" id="msgShowSettings">
                   <Label resid="ShowSettingsLabel" />
                   <Supertip>
@@ -113,20 +97,17 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="icon16" DefaultValue="https://zohoaddin.azurewebsites.net/Images/icon16.png"/>
-        <bt:Image id="icon32" DefaultValue="https://zohoaddin.azurewebsites.net/Images/icon32.png"/>
-        <bt:Image id="icon80" DefaultValue="https://zohoaddin.azurewebsites.net/Images/icon80.png"/>
+        <bt:Image id="icon16" DefaultValue="~remoteAppUrl/Images/icon16.png"/>
+        <bt:Image id="icon32" DefaultValue="~remoteAppUrl/Images/icon32.png"/>
+        <bt:Image id="icon80" DefaultValue="~remoteAppUrl/Images/icon80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="functionFile" DefaultValue="https://zohoaddin.azurewebsites.net/Functions/FunctionFile.html"/>
-        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://zohoaddin.azurewebsites.net/MessageRead.html"/>
+        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="~remoteAppUrl/MessageRead.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="Zoho Desk Add-in"/>
-        <bt:String id="ForwardToZohoDeskLabel" DefaultValue="Forward to Zoho Desk"/>
-        <bt:String id="ForwardToZohoDeskTitle" DefaultValue="Forward to Zoho Desk"/>
-        <bt:String id="ShowSettingsLabel" DefaultValue="Settings"/>
-        <bt:String id="ShowSettingsTitle" DefaultValue="Settings"/>
+        <bt:String id="ShowSettingsLabel" DefaultValue="Forward to Zoho Desk"/>
+        <bt:String id="ShowSettingsTitle" DefaultValue="Forward to Zoho Desk"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="ForwardToZohoDeskDesc" DefaultValue="Forward to Zoho Desk to automatically open a ticket."/>
